@@ -1,2 +1,13 @@
-@import './common';
+// base
+@import './base/common';
+
+// utils
+
+// component
+@import './component/socials';
+@import './component/mobile-modal';
+@import './component/modal';
+
+// layout
+
 @import './example';
