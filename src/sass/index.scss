@@ -1,5 +1,7 @@
 // base
 @import './base/common';
+@import './base/fonts';
+@import './base/reset';
 
 // utils
 
@@ -7,7 +9,15 @@
 @import './component/socials';
 @import './component/mobile-modal';
 @import './component/modal';
+@import './component/button';
+@import './component/header';
+@import './component/footer';
 
-// layout
+//
+@import './layout/hero';
+@import './layout/employment';
+@import './layout/features';
+@import './layout/team';
+@import './layout/clients';
 
 @import './example';
