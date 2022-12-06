@@ -6,8 +6,10 @@
 // utils
 
 // component
+@import './component/container';
+@import './component/logo';
 @import './component/socials';
-@import './component/mobile-modal';
+@import './component/mobile-menu';
 @import './component/modal';
 @import './component/button';
 @import './component/header';
