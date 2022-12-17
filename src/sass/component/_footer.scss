@@ -1,0 +1,141 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #2f303a;
+}
+
+.footer__address-thumb {
+  text-align: center;
+}
+
+.address {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.address__maps-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #ffffff;
+}
+
+.address__item {
+  margin-bottom: 8px;
+}
+
+.address__list {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+}
+
+.address__mail-link,
+.address__tel-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__social {
+  margin-bottom: 60px;
+}
+
+.footer__title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.social__link--footer-color {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+
+.footer__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer__form-field {
+  position: relative;
+}
+
+.footer__form-input {
+  margin-bottom: 20px;
+
+  height: 50px;
+  min-width: 450px;
+  padding: 15px 16px;
+
+  background-color: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+
+  color: #ffffff;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus + .footer__form-label,
+  &:not(:placeholder-shown) + .footer__form-label {
+    transform: translateY(-15px) scale(0.8);
+  }
+
+  &::placeholder {
+    opacity: 0;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+  }
+
+  &:focus::placeholder {
+    opacity: 1;
+    color: #ffffff;
+  }
+
+  @media screen and(max-width: 480px) {
+    min-width: calc((450 / 480) * 100vw);
+  }
+}
+
+.footer__form-label {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+
+  transform-origin: left;
+
+  color: #ffffff;
+}
+
+.button__form-mail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__form-icon {
+  margin-left: 12px;
+  fill: currentColor;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .button__form-mail:focus & {
+    transform: scale(1.4);
+  }
+}

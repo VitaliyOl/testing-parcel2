@@ -1,76 +1,377 @@
 /* Стили для подложки */
 
 .overlay {
-   
-    /* Скрываем подложку  */
-    opacity: 0;
-    visibility: hidden;
-    
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    z-index: 20;
-    transition: .3s all;
- }
- 
- 
- /* Стили для модальных окон */
- 
- .modal {
-    
-    /* Скрываем окна  */
-    opacity: 0;
-    visibility: hidden;
-    
-    
-    /*  Установаем ширину окна  */
-    width: 100%;
-    max-width: 500px;
-    
-    /*  Центрируем и задаем z-index */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 30; /* Должен быть выше чем у подложки*/
-    
-    /*  Побочные стили   */
-    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
-    text-align: center;
-    padding: 30px;
-    border-radius: 3px;
-    background-color: #fff;
-    transition: 0.3s all;
- }
- 
- 
- /* Стили для активных классов подложки и окна */
- 
- .modal.active,
- .overlay.active{
-    opacity: 1;
-    visibility: visible;
- }
- 
- 
- /* Стили для кнопки закрытия */
- 
- .modal__cross {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    fill: #444;
-    cursor: pointer;
- }
- 
- 
- /* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
- 
+  /* Скрываем подложку  */
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  transition: 0.3s all;
+
+  @media screen and(max-width: 767px) {
+    padding: 93px 15px;
+  }
+}
+
+/* Стили для модальных окон */
+
+.modal {
+  /* Скрываем окна  */
+  opacity: 0;
+  visibility: hidden;
+
+  /*  Установаем ширину окна  */
+  width: 100%;
+  max-width: 500px;
+
+  /*  Центрируем и задаем z-index */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30; /* Должен быть выше чем у подложки*/
+
+  /*  Побочные стили   */
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.3s all;
+}
+
+/* Стили для активных классов подложки и окна */
+
+.modal.active,
+.overlay.active,
+.modal__hero.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Стили для кнопки закрытия */
+
+.modal__cross {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  fill: #444;
+  cursor: pointer;
+}
+
+// все стили и форма для модалки ГЕРОЯ
+
+.modal__hero {
+  /* Скрываем окна  */
+  opacity: 0;
+  visibility: hidden;
+
+  /*  Установаем ширину окна  */
+
+  position: fixed;
+  top: 41%;
+
+  max-width: 450px;
+  max-height: 609px;
+
+  padding: 40px;
+
+  /*  Побочные стили   */
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+
+  padding: 40px;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.3s all;
+}
+
+.modal__cross-hero {
+  fill: black;
+}
+
+.button-hero-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal__title-hero {
+  display: block;
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+
+  text-align: center;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  border-radius: 6px;
+  transition: box-shadow 300ms ease-in-out;
+}
+
+.form-field:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-field:has(.form-input:not(:placeholder-shown):valid) {
+  box-shadow: 0 0 0 4px rgba(6, 171, 99, 0.4);
+}
+
+.form-field:has(.form-input:not(:placeholder-shown):invalid) {
+  box-shadow: 0 0 0 4px rgba(235, 14, 14, 0.4);
+}
+
+.form-input:not(:placeholder-shown):invalid {
+  border: none;
+}
+
+.form-input:not(:placeholder-shown):valid {
+  border: none;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  transform-origin: top left;
+
+  transition: transform 300ms ease-in-out;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-80%) scale(0.6);
+}
+
+.form-info {
+  position: absolute;
+  left: 4px;
+  bottom: 0;
+  transform: translateY(150%) scale(0.3);
+  transform-origin: left;
+  opacity: 0;
+
+  font-size: 8px;
+  color: rgb(235, 14, 14);
+
+  transition: 200ms;
+}
+
+.form-input:not(:placeholder-shown):invalid:required ~ .form-info {
+  transform: translateY(150%) scale(1);
+  opacity: 1;
+}
+
+.form-info-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.warning,
+.success {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-origin: center;
+  transition: 300ms ease-in-out;
+}
+
+.form-input:not(:placeholder-shown):invalid:required
+  ~ .form-info-icon
+  .warning {
+  opacity: 1;
+  transform: scale(1);
+  fill: #eb0e0e;
+  transition-delay: 150ms;
+}
+
+.form-input:not(:placeholder-shown):valid:required ~ .form-info-icon .success {
+  opacity: 1;
+  transform: scale(1);
+  fill: #06ab63;
+  transition-delay: 150ms;
+}
+
+.form-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  height: 100%;
+
+  background-color: #2196f3;
+  border-radius: 6px 0 0 6px;
+}
+
+.form-icon {
+  fill: #ffffff;
+}
+
+.form-input {
+  width: 100%;
+  height: 48px;
+  padding: 18px 12px 8px;
+
+  font-size: 14px;
+
+  outline: unset;
+  border: 1px solid #2196f3;
+  border-radius: 0 6px 6px 0;
+}
+
+.form-input::placeholder {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.form-input:focus::placeholder {
+  opacity: 1;
+}
+
+.form-message {
+  display: block;
+  width: 100%;
+  resize: none;
+
+  padding: 18px 12px;
+
+  outline: unset;
+  border: 1px solid #2196f3;
+  border-radius: 6px;
+
+  transition: 300ms ease-in-out;
+}
+
+.form-message ~ .form-label {
+  top: 30px;
+  left: 8px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  background-color: #fff;
+  pointer-events: none;
+}
+
+.form-message:focus ~ .form-label,
+.form-message:not(:placeholder-shown) ~ .form-label {
+  transform: translateY(-195%) scale(0.8);
+}
+
+.form-agreement {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-agreement-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  color: #757575;
+}
+
+// 1 metod
+
+.form-checkbox {
+  appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%0A%3E%3Cpath d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'%0Afill='%23ff6c00' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0;
+
+  border: 2px solid #111319;
+  border-radius: 3px;
+
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.form-checkbox:checked {
+  // background-color: #ff6c00;
+  border-color: transparent;
+  background-size: 14px;
+  background-size: contain;
+}
+
+// 2 metod
+
+.form-agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-checkbox-icon .unchecked {
+  opacity: 1;
+  transition: 300ms ease-in-out;
+}
+
+.form-checkbox:checked + .form-checkbox-icon .unchecked {
+  opacity: 0;
+}
+
+.form-checkbox-icon .checked {
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+
+.form-checkbox:checked + .form-checkbox-icon .checked {
+  opacity: 1;
+}
+
+.form-agreement-text {
+  user-select: none;
+}
+
+.form-agreement-link {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  text-decoration-line: underline;
+
+  color: #2196f3;
+}
+
+/* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
+
 //  a {
 //     padding: 20px;
 //     display: inline-block;

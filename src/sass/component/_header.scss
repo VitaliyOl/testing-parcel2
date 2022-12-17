@@ -1,8 +1,16 @@
 .header__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.header-nav__list {
+  display: flex;
+  margin: 0 auto;
+}
+
+.header-contacts {
+  margin-left: auto;
 }
